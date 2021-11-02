@@ -9,3 +9,4 @@ message SensorData {
     float temperature = 2;
     float humidity = 3;
 }
+
