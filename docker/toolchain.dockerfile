@@ -6,3 +6,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     protobuf-compiler \
     golang-google-grpc-dev \ 
     golang-goprotobuf-dev
+
+WORKDIR /work
