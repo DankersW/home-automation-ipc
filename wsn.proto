@@ -1,5 +1,4 @@
 syntax = "proto3";
-import "google/protobuf/empty.proto";
 
 package wsn;
 option go_package = "./wsn";
@@ -9,4 +8,3 @@ message SensorData {
     float temperature = 2;
     float humidity = 3;
 }
-
