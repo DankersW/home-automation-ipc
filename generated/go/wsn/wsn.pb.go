@@ -18,7 +18,7 @@ var _ = math.Inf
 // is compatible with the proto package it is being compiled against.
 // A compilation error at this line likely means your copy of the
 // proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
+const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type SensorData struct {
 	SensorId             string   `protobuf:"bytes,1,opt,name=sensor_id,json=sensorId,proto3" json:"sensor_id,omitempty"`
@@ -79,9 +79,7 @@ func init() {
 	proto.RegisterType((*SensorData)(nil), "wsn.SensorData")
 }
 
-func init() {
-	proto.RegisterFile("wsn.proto", fileDescriptor_e98e9ae78d49442e)
-}
+func init() { proto.RegisterFile("wsn.proto", fileDescriptor_e98e9ae78d49442e) }
 
 var fileDescriptor_e98e9ae78d49442e = []byte{
 	// 131 bytes of a gzipped FileDescriptorProto

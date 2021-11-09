@@ -1,8 +1,8 @@
 #!/bin/bash
 
 BASE_DIR=$(readlink -f $(dirname $0)/..)
-IMAGE_NAME="home_automation_ipc_toolchain"
-IMAGE_TAG="latest"
+IMAGE_NAME="znly/protoc"
+IMAGE_TAG="0.4.0"
 
 fail() {
     echo "##### FAIL: $1"
@@ -11,8 +11,8 @@ fail() {
 
 docker run \
     --rm \
-	--user $UID:$UID \
-	--volume ${BASE_DIR}:/work \
+	-v $(pwd):$(pwd) \
+    -w $(pwd) \
 	-it --privileged \
     ${IMAGE_NAME}:${IMAGE_TAG} $@ \
         || fail "running docker, better luck next time"
