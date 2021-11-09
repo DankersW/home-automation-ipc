@@ -5,5 +5,5 @@ Contains the protubuf files and compiled binaries for the HomeAutomation IPC (In
 ## Generate Protobuf files
 
 ```sh
-./scripts/run.sh go generate
+./scripts/generate.sh
 ```
