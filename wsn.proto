@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package wsn;
+option go_package = "./wsn";
+
+message SensorData {
+    string sensor_id = 1;
+    float temperature = 2;
+    float humidity = 3;
+}
