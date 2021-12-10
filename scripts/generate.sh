@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker login
+
 mkdir -p generated/go
 mkdir -p generated/c
 
