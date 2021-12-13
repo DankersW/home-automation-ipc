@@ -11,7 +11,7 @@
 
 /* Struct definitions */
 typedef struct _wsn_SensorData { 
-    pb_callback_t sensor_id; 
+    char sensor_id[16]; 
     float temperature; 
     float humidity; 
 } wsn_SensorData;
@@ -22,8 +22,8 @@ extern "C" {
 #endif
 
 /* Initializer values for message structs */
-#define wsn_SensorData_init_default              {{{NULL}, NULL}, 0, 0}
-#define wsn_SensorData_init_zero                 {{{NULL}, NULL}, 0, 0}
+#define wsn_SensorData_init_default              {"", 0, 0}
+#define wsn_SensorData_init_zero                 {"", 0, 0}
 
 /* Field tags (for use in manual encoding/decoding) */
 #define wsn_SensorData_sensor_id_tag             1
@@ -32,10 +32,10 @@ extern "C" {
 
 /* Struct field encoding specification for nanopb */
 #define wsn_SensorData_FIELDLIST(X, a) \
-X(a, CALLBACK, SINGULAR, STRING,   sensor_id,         1) \
+X(a, STATIC,   SINGULAR, STRING,   sensor_id,         1) \
 X(a, STATIC,   SINGULAR, FLOAT,    temperature,       2) \
 X(a, STATIC,   SINGULAR, FLOAT,    humidity,          3)
-#define wsn_SensorData_CALLBACK pb_default_field_callback
+#define wsn_SensorData_CALLBACK NULL
 #define wsn_SensorData_DEFAULT NULL
 
 extern const pb_msgdesc_t wsn_SensorData_msg;
@@ -44,7 +44,7 @@ extern const pb_msgdesc_t wsn_SensorData_msg;
 #define wsn_SensorData_fields &wsn_SensorData_msg
 
 /* Maximum encoded size of messages (where known) */
-/* wsn_SensorData_size depends on runtime parameters */
+#define wsn_SensorData_size                      27
 
 #ifdef __cplusplus
 } /* extern "C" */
