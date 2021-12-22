@@ -11,7 +11,7 @@
 
 /* Struct definitions */
 typedef struct _wsn_SensorData { 
-    char sensor_id[3]; 
+    char sensor_id[4]; 
     float temperature; 
     float humidity; 
 } wsn_SensorData;
@@ -44,7 +44,7 @@ extern const pb_msgdesc_t wsn_SensorData_msg;
 #define wsn_SensorData_fields &wsn_SensorData_msg
 
 /* Maximum encoded size of messages (where known) */
-#define wsn_SensorData_size                      14
+#define wsn_SensorData_size                      15
 
 #ifdef __cplusplus
 } /* extern "C" */
