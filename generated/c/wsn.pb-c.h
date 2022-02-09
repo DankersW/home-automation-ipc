@@ -27,8 +27,14 @@ struct  _Wsn__SensorData
 {
   ProtobufCMessage base;
   char *sensor_id;
-  float temperature;
-  float humidity;
+  /*
+   * multiplication of 10. so 38.7 degress == 387
+   */
+  int32_t temperature;
+  /*
+   * multiplication of 10. 
+   */
+  int32_t humidity;
 };
 #define WSN__SENSOR_DATA__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&wsn__sensor_data__descriptor) \
