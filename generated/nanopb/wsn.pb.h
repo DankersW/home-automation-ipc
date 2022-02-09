@@ -12,8 +12,8 @@
 /* Struct definitions */
 typedef struct _wsn_SensorData { 
     char sensor_id[4]; 
-    float temperature; 
-    float humidity; 
+    int32_t temperature; /* multiplication of 10. so 38.7 degress == 387 */
+    int32_t humidity; /* multiplication of 10. */
 } wsn_SensorData;
 
 
@@ -33,8 +33,8 @@ extern "C" {
 /* Struct field encoding specification for nanopb */
 #define wsn_SensorData_FIELDLIST(X, a) \
 X(a, STATIC,   SINGULAR, STRING,   sensor_id,         1) \
-X(a, STATIC,   SINGULAR, FLOAT,    temperature,       2) \
-X(a, STATIC,   SINGULAR, FLOAT,    humidity,          3)
+X(a, STATIC,   SINGULAR, INT32,    temperature,       2) \
+X(a, STATIC,   SINGULAR, INT32,    humidity,          3)
 #define wsn_SensorData_CALLBACK NULL
 #define wsn_SensorData_DEFAULT NULL
 
@@ -44,7 +44,7 @@ extern const pb_msgdesc_t wsn_SensorData_msg;
 #define wsn_SensorData_fields &wsn_SensorData_msg
 
 /* Maximum encoded size of messages (where known) */
-#define wsn_SensorData_size                      15
+#define wsn_SensorData_size                      27
 
 #ifdef __cplusplus
 } /* extern "C" */

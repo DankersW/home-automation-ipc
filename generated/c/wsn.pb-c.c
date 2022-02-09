@@ -70,7 +70,7 @@ static const ProtobufCFieldDescriptor wsn__sensor_data__field_descriptors[3] =
     "temperature",
     2,
     PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_FLOAT,
+    PROTOBUF_C_TYPE_INT32,
     0,   /* quantifier_offset */
     offsetof(Wsn__SensorData, temperature),
     NULL,
@@ -82,7 +82,7 @@ static const ProtobufCFieldDescriptor wsn__sensor_data__field_descriptors[3] =
     "humidity",
     3,
     PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_FLOAT,
+    PROTOBUF_C_TYPE_INT32,
     0,   /* quantifier_offset */
     offsetof(Wsn__SensorData, humidity),
     NULL,

@@ -5,6 +5,6 @@ option go_package = "./wsn";
 
 message SensorData {
     string sensor_id = 1;
-    float temperature = 2;
-    float humidity = 3;
+    int32 temperature = 2; // multiplication of 10. so 38.7 degress == 387
+    int32 humidity = 3; // multiplication of 10. 
 }
