@@ -16,15 +16,14 @@ PROTOBUF_C__BEGIN_DECLS
 
 
 typedef struct _Wsn__SensorData Wsn__SensorData;
-typedef struct _Wsn__MessageType Wsn__MessageType;
 
 
 /* --- enums --- */
 
-typedef enum _Wsn__MessageType__Type {
-  WSN__MESSAGE_TYPE__TYPE__SENSOR_DATA = 0
-    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(WSN__MESSAGE_TYPE__TYPE)
-} Wsn__MessageType__Type;
+typedef enum _Wsn__MessageType {
+  WSN__MESSAGE_TYPE__SENSOR_DATA = 0
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(WSN__MESSAGE_TYPE)
+} Wsn__MessageType;
 
 /* --- messages --- */
 
@@ -46,16 +45,6 @@ struct  _Wsn__SensorData
     , (char *)protobuf_c_empty_string, 0, 0 }
 
 
-struct  _Wsn__MessageType
-{
-  ProtobufCMessage base;
-  Wsn__MessageType__Type type;
-};
-#define WSN__MESSAGE_TYPE__INIT \
- { PROTOBUF_C_MESSAGE_INIT (&wsn__message_type__descriptor) \
-    , WSN__MESSAGE_TYPE__TYPE__SENSOR_DATA }
-
-
 /* Wsn__SensorData methods */
 void   wsn__sensor_data__init
                      (Wsn__SensorData         *message);
@@ -75,32 +64,10 @@ Wsn__SensorData *
 void   wsn__sensor_data__free_unpacked
                      (Wsn__SensorData *message,
                       ProtobufCAllocator *allocator);
-/* Wsn__MessageType methods */
-void   wsn__message_type__init
-                     (Wsn__MessageType         *message);
-size_t wsn__message_type__get_packed_size
-                     (const Wsn__MessageType   *message);
-size_t wsn__message_type__pack
-                     (const Wsn__MessageType   *message,
-                      uint8_t             *out);
-size_t wsn__message_type__pack_to_buffer
-                     (const Wsn__MessageType   *message,
-                      ProtobufCBuffer     *buffer);
-Wsn__MessageType *
-       wsn__message_type__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data);
-void   wsn__message_type__free_unpacked
-                     (Wsn__MessageType *message,
-                      ProtobufCAllocator *allocator);
 /* --- per-message closures --- */
 
 typedef void (*Wsn__SensorData_Closure)
                  (const Wsn__SensorData *message,
-                  void *closure_data);
-typedef void (*Wsn__MessageType_Closure)
-                 (const Wsn__MessageType *message,
                   void *closure_data);
 
 /* --- services --- */
@@ -108,9 +75,8 @@ typedef void (*Wsn__MessageType_Closure)
 
 /* --- descriptors --- */
 
+extern const ProtobufCEnumDescriptor    wsn__message_type__descriptor;
 extern const ProtobufCMessageDescriptor wsn__sensor_data__descriptor;
-extern const ProtobufCMessageDescriptor wsn__message_type__descriptor;
-extern const ProtobufCEnumDescriptor    wsn__message_type__type__descriptor;
 
 PROTOBUF_C__END_DECLS
 

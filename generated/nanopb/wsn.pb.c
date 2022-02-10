@@ -9,8 +9,5 @@
 PB_BIND(wsn_SensorData, wsn_SensorData, AUTO)
 
 
-PB_BIND(wsn_MessageType, wsn_MessageType, AUTO)
-
-
 
 

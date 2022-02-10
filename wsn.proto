@@ -9,9 +9,6 @@ message SensorData {
     int32 humidity = 3; // multiplication of 10. 
 }
 
-message MessageType {
-    enum Type {
-        SENSOR_DATA = 0;
-    }
-    Type type = 1;
+enum MessageType {
+    SENSOR_DATA = 0;
 }

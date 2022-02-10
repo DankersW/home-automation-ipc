@@ -10,15 +10,11 @@
 #endif
 
 /* Enum definitions */
-typedef enum _wsn_MessageType_Type { 
-    wsn_MessageType_Type_SENSOR_DATA = 0 
-} wsn_MessageType_Type;
-
-/* Struct definitions */
-typedef struct _wsn_MessageType { 
-    wsn_MessageType_Type type; 
+typedef enum _wsn_MessageType { 
+    wsn_MessageType_SENSOR_DATA = 0 
 } wsn_MessageType;
 
+/* Struct definitions */
 typedef struct _wsn_SensorData { 
     char sensor_id[4]; 
     int32_t temperature; /* multiplication of 10. so 38.7 degress == 387 */
@@ -27,9 +23,9 @@ typedef struct _wsn_SensorData {
 
 
 /* Helper constants for enums */
-#define _wsn_MessageType_Type_MIN wsn_MessageType_Type_SENSOR_DATA
-#define _wsn_MessageType_Type_MAX wsn_MessageType_Type_SENSOR_DATA
-#define _wsn_MessageType_Type_ARRAYSIZE ((wsn_MessageType_Type)(wsn_MessageType_Type_SENSOR_DATA+1))
+#define _wsn_MessageType_MIN wsn_MessageType_SENSOR_DATA
+#define _wsn_MessageType_MAX wsn_MessageType_SENSOR_DATA
+#define _wsn_MessageType_ARRAYSIZE ((wsn_MessageType)(wsn_MessageType_SENSOR_DATA+1))
 
 
 #ifdef __cplusplus
@@ -38,12 +34,9 @@ extern "C" {
 
 /* Initializer values for message structs */
 #define wsn_SensorData_init_default              {"", 0, 0}
-#define wsn_MessageType_init_default             {_wsn_MessageType_Type_MIN}
 #define wsn_SensorData_init_zero                 {"", 0, 0}
-#define wsn_MessageType_init_zero                {_wsn_MessageType_Type_MIN}
 
 /* Field tags (for use in manual encoding/decoding) */
-#define wsn_MessageType_type_tag                 1
 #define wsn_SensorData_sensor_id_tag             1
 #define wsn_SensorData_temperature_tag           2
 #define wsn_SensorData_humidity_tag              3
@@ -56,20 +49,12 @@ X(a, STATIC,   SINGULAR, INT32,    humidity,          3)
 #define wsn_SensorData_CALLBACK NULL
 #define wsn_SensorData_DEFAULT NULL
 
-#define wsn_MessageType_FIELDLIST(X, a) \
-X(a, STATIC,   SINGULAR, UENUM,    type,              1)
-#define wsn_MessageType_CALLBACK NULL
-#define wsn_MessageType_DEFAULT NULL
-
 extern const pb_msgdesc_t wsn_SensorData_msg;
-extern const pb_msgdesc_t wsn_MessageType_msg;
 
 /* Defines for backwards compatibility with code written before nanopb-0.4.0 */
 #define wsn_SensorData_fields &wsn_SensorData_msg
-#define wsn_MessageType_fields &wsn_MessageType_msg
 
 /* Maximum encoded size of messages (where known) */
-#define wsn_MessageType_size                     2
 #define wsn_SensorData_size                      27
 
 #ifdef __cplusplus

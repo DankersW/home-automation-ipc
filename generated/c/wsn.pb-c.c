@@ -52,51 +52,6 @@ void   wsn__sensor_data__free_unpacked
   assert(message->base.descriptor == &wsn__sensor_data__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-void   wsn__message_type__init
-                     (Wsn__MessageType         *message)
-{
-  static const Wsn__MessageType init_value = WSN__MESSAGE_TYPE__INIT;
-  *message = init_value;
-}
-size_t wsn__message_type__get_packed_size
-                     (const Wsn__MessageType *message)
-{
-  assert(message->base.descriptor == &wsn__message_type__descriptor);
-  return protobuf_c_message_get_packed_size ((const ProtobufCMessage*)(message));
-}
-size_t wsn__message_type__pack
-                     (const Wsn__MessageType *message,
-                      uint8_t       *out)
-{
-  assert(message->base.descriptor == &wsn__message_type__descriptor);
-  return protobuf_c_message_pack ((const ProtobufCMessage*)message, out);
-}
-size_t wsn__message_type__pack_to_buffer
-                     (const Wsn__MessageType *message,
-                      ProtobufCBuffer *buffer)
-{
-  assert(message->base.descriptor == &wsn__message_type__descriptor);
-  return protobuf_c_message_pack_to_buffer ((const ProtobufCMessage*)message, buffer);
-}
-Wsn__MessageType *
-       wsn__message_type__unpack
-                     (ProtobufCAllocator  *allocator,
-                      size_t               len,
-                      const uint8_t       *data)
-{
-  return (Wsn__MessageType *)
-     protobuf_c_message_unpack (&wsn__message_type__descriptor,
-                                allocator, len, data);
-}
-void   wsn__message_type__free_unpacked
-                     (Wsn__MessageType *message,
-                      ProtobufCAllocator *allocator)
-{
-  if(!message)
-    return;
-  assert(message->base.descriptor == &wsn__message_type__descriptor);
-  protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
-}
 static const ProtobufCFieldDescriptor wsn__sensor_data__field_descriptors[3] =
 {
   {
@@ -161,67 +116,29 @@ const ProtobufCMessageDescriptor wsn__sensor_data__descriptor =
   (ProtobufCMessageInit) wsn__sensor_data__init,
   NULL,NULL,NULL    /* reserved[123] */
 };
-static const ProtobufCEnumValue wsn__message_type__type__enum_values_by_number[1] =
+static const ProtobufCEnumValue wsn__message_type__enum_values_by_number[1] =
 {
-  { "SENSOR_DATA", "WSN__MESSAGE_TYPE__TYPE__SENSOR_DATA", 0 },
+  { "SENSOR_DATA", "WSN__MESSAGE_TYPE__SENSOR_DATA", 0 },
 };
-static const ProtobufCIntRange wsn__message_type__type__value_ranges[] = {
+static const ProtobufCIntRange wsn__message_type__value_ranges[] = {
 {0, 0},{0, 1}
 };
-static const ProtobufCEnumValueIndex wsn__message_type__type__enum_values_by_name[1] =
+static const ProtobufCEnumValueIndex wsn__message_type__enum_values_by_name[1] =
 {
   { "SENSOR_DATA", 0 },
 };
-const ProtobufCEnumDescriptor wsn__message_type__type__descriptor =
+const ProtobufCEnumDescriptor wsn__message_type__descriptor =
 {
   PROTOBUF_C__ENUM_DESCRIPTOR_MAGIC,
-  "wsn.MessageType.Type",
-  "Type",
-  "Wsn__MessageType__Type",
-  "wsn",
-  1,
-  wsn__message_type__type__enum_values_by_number,
-  1,
-  wsn__message_type__type__enum_values_by_name,
-  1,
-  wsn__message_type__type__value_ranges,
-  NULL,NULL,NULL,NULL   /* reserved[1234] */
-};
-static const ProtobufCFieldDescriptor wsn__message_type__field_descriptors[1] =
-{
-  {
-    "type",
-    1,
-    PROTOBUF_C_LABEL_NONE,
-    PROTOBUF_C_TYPE_ENUM,
-    0,   /* quantifier_offset */
-    offsetof(Wsn__MessageType, type),
-    &wsn__message_type__type__descriptor,
-    NULL,
-    0,             /* flags */
-    0,NULL,NULL    /* reserved1,reserved2, etc */
-  },
-};
-static const unsigned wsn__message_type__field_indices_by_name[] = {
-  0,   /* field[0] = type */
-};
-static const ProtobufCIntRange wsn__message_type__number_ranges[1 + 1] =
-{
-  { 1, 0 },
-  { 0, 1 }
-};
-const ProtobufCMessageDescriptor wsn__message_type__descriptor =
-{
-  PROTOBUF_C__MESSAGE_DESCRIPTOR_MAGIC,
   "wsn.MessageType",
   "MessageType",
   "Wsn__MessageType",
   "wsn",
-  sizeof(Wsn__MessageType),
   1,
-  wsn__message_type__field_descriptors,
-  wsn__message_type__field_indices_by_name,
-  1,  wsn__message_type__number_ranges,
-  (ProtobufCMessageInit) wsn__message_type__init,
-  NULL,NULL,NULL    /* reserved[123] */
+  wsn__message_type__enum_values_by_number,
+  1,
+  wsn__message_type__enum_values_by_name,
+  1,
+  wsn__message_type__value_ranges,
+  NULL,NULL,NULL,NULL   /* reserved[1234] */
 };
