@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package ipc;
+option go_package = "./ipc";
+
+message WsnSensorDataTelemetry {
+    string sensor_id = 1;
+    float temperature = 2; 
+    float humidity = 3;
+}
