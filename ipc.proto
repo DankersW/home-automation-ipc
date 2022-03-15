@@ -4,7 +4,7 @@ package ipc;
 option go_package = "./ipc";
 
 message WsnSensorDataTelemetry {
-    int64 timestamp = 1;
+    uint32 timestamp = 1;
     string sensor_id = 2;
     float temperature = 3; 
     float humidity = 4;
