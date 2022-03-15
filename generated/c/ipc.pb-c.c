@@ -52,11 +52,23 @@ void   ipc__wsn_sensor_data_telemetry__free_unpacked
   assert(message->base.descriptor == &ipc__wsn_sensor_data_telemetry__descriptor);
   protobuf_c_message_free_unpacked ((ProtobufCMessage*)message, allocator);
 }
-static const ProtobufCFieldDescriptor ipc__wsn_sensor_data_telemetry__field_descriptors[3] =
+static const ProtobufCFieldDescriptor ipc__wsn_sensor_data_telemetry__field_descriptors[4] =
 {
   {
-    "sensor_id",
+    "timestamp",
     1,
+    PROTOBUF_C_LABEL_NONE,
+    PROTOBUF_C_TYPE_UINT32,
+    0,   /* quantifier_offset */
+    offsetof(Ipc__WsnSensorDataTelemetry, timestamp),
+    NULL,
+    NULL,
+    0,             /* flags */
+    0,NULL,NULL    /* reserved1,reserved2, etc */
+  },
+  {
+    "sensor_id",
+    2,
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_STRING,
     0,   /* quantifier_offset */
@@ -68,7 +80,7 @@ static const ProtobufCFieldDescriptor ipc__wsn_sensor_data_telemetry__field_desc
   },
   {
     "temperature",
-    2,
+    3,
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_FLOAT,
     0,   /* quantifier_offset */
@@ -80,7 +92,7 @@ static const ProtobufCFieldDescriptor ipc__wsn_sensor_data_telemetry__field_desc
   },
   {
     "humidity",
-    3,
+    4,
     PROTOBUF_C_LABEL_NONE,
     PROTOBUF_C_TYPE_FLOAT,
     0,   /* quantifier_offset */
@@ -92,14 +104,15 @@ static const ProtobufCFieldDescriptor ipc__wsn_sensor_data_telemetry__field_desc
   },
 };
 static const unsigned ipc__wsn_sensor_data_telemetry__field_indices_by_name[] = {
-  2,   /* field[2] = humidity */
-  0,   /* field[0] = sensor_id */
-  1,   /* field[1] = temperature */
+  3,   /* field[3] = humidity */
+  1,   /* field[1] = sensor_id */
+  2,   /* field[2] = temperature */
+  0,   /* field[0] = timestamp */
 };
 static const ProtobufCIntRange ipc__wsn_sensor_data_telemetry__number_ranges[1 + 1] =
 {
   { 1, 0 },
-  { 0, 3 }
+  { 0, 4 }
 };
 const ProtobufCMessageDescriptor ipc__wsn_sensor_data_telemetry__descriptor =
 {
@@ -109,7 +122,7 @@ const ProtobufCMessageDescriptor ipc__wsn_sensor_data_telemetry__descriptor =
   "Ipc__WsnSensorDataTelemetry",
   "ipc",
   sizeof(Ipc__WsnSensorDataTelemetry),
-  3,
+  4,
   ipc__wsn_sensor_data_telemetry__field_descriptors,
   ipc__wsn_sensor_data_telemetry__field_indices_by_name,
   1,  ipc__wsn_sensor_data_telemetry__number_ranges,
