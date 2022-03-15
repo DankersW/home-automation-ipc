@@ -26,13 +26,14 @@ typedef struct _Ipc__WsnSensorDataTelemetry Ipc__WsnSensorDataTelemetry;
 struct  _Ipc__WsnSensorDataTelemetry
 {
   ProtobufCMessage base;
+  uint32_t timestamp;
   char *sensor_id;
   float temperature;
   float humidity;
 };
 #define IPC__WSN_SENSOR_DATA_TELEMETRY__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&ipc__wsn_sensor_data_telemetry__descriptor) \
-    , (char *)protobuf_c_empty_string, 0, 0 }
+    , 0, (char *)protobuf_c_empty_string, 0, 0 }
 
 
 /* Ipc__WsnSensorDataTelemetry methods */
